@@ -20,6 +20,8 @@
         <module>feign-consumer</module>
         <module>gateway</module>
         <module>config</module>
+        <module>rabbitmq-hello</module>
+        <module>stream-hello</module>
     </modules>
 
     <properties>
