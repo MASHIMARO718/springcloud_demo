@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: hello-service
+  datasource:
+    url: jdbc:mysql://180.76.100.224:3306/mysql?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 7181232
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+    shutdown:
+      enabled: true
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${random.int}
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+

@@ -1,0 +1,29 @@
+
+spring:
+  application:
+    name: geteway
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+    shutdown:
+      enabled: true
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${random.int}
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+server:
+  port: 8969
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: hello-service
+    api-b:
+      path: /api-b/**
+      serviceId: feign-consumer
