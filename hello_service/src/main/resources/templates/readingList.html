@@ -1,0 +1,48 @@
+
+<html><head>
+    <title>Reading List</title>
+</head>
+<body>
+<h2>Your Reading List</h2>
+
+<h3>Add a book</h3>
+<input id="aaa" onkeyup="plusOrMinus(this.value)"/>
+
+</body>
+<script>
+    function plusOrMinus(values) {
+        var newValue;
+        if (!(/[^0-9\.\-\,]/g.test(values))) {
+            console.log("in:"+values);
+            // eslint-disable-next-line
+            newValue = values.replace(/[^\-\d.]/g, '').replace(/\b(0+){2,}/g, '0').replace(/\-{2,}/g, '-').replace(/^\./g, '').replace(/\.{2,}/g, '.').replace('.', '$#$').replace(/\./g, '').replace('$#$', '.')
+            // if (newValue.toString().indexOf('.') > 0 && Number(newValue.toString().split('.')[1].length) > 2) {
+            //     newValue = parseInt(parseFloat(newValue) * 100) / 100
+            // }
+            // if ((newValue.toString().split('-').length - 1) > 1) {
+            //     newValue = parseFloat(newValue) || ''
+            // }
+            // if ((newValue.toString().split('-').length) > 1 && newValue.toString().split('-')[0].length > 0) {
+            //     newValue = parseFloat(newValue) || ''
+            // }
+            // if (newValue.toString().length > 1 && (newValue.toString().charAt(0) === '0' || (newValue.toString().length > 2 && newValue.toString().charAt(0) === '-' && newValue.toString().charAt(1) === '0' && newValue.toString().charAt(2) !== '.')) && newValue.toString().indexOf('.') < 1) {
+            //     newValue = parseFloat(newValue) || ''
+            // }
+            // // 判断整数位最多为9位
+            // if (newValue.toString().indexOf('.') > 0 && Number(newValue.toString().split('.')[0].length) > 25) {
+            //     newValue = newValue.toString().substring(0, 9) + '.' + newValue.toString().split('.')[1]
+            // } else if (newValue.toString().indexOf('.') < 0 && Number(newValue.toString().split('.')[0].length) > 9) {
+            //     newValue = newValue.toString().substring(0, 9)
+            // }
+            newValue = values;
+        } else {
+            newValue = values.replace(/[^0-9\.\-\\,]/g, '');
+            console.log("2:"+newValue);
+        }
+        console.log("3:"+newValue);
+        document.getElementById("aaa").value = newValue;
+        return newValue
+    }
+
+</script>
+</html>

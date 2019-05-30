@@ -2,6 +2,7 @@ package com.jmh.feignconsumer.controller;
 
 import com.jmh.feignconsumer.entity.User;
 import com.jmh.feignconsumer.service.HelloService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,5 +33,9 @@ public class ConsumerController {
         sb.append(helloService.hello("123", 456)).append("\n");
         sb.append(helloService.hello(new User("gfd", 123))).append("\n");
         return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(StringUtils.isBlank(null));
     }
 }
